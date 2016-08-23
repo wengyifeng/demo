@@ -267,7 +267,7 @@ public class ADAuthSpringTest {
 ```
 **==注意==：在测试的时候需要将x.x.x.x,xxx,abc,123abc.替换成相应的域服务器ip,域服务器端口,域用户名，域用户密码**
 
-源码：
+源码：https://github.com/GreyZeng/advalidationdemo
 
 -------------------
 更多：http://docs.spring.io/spring-ldap/docs/1.2.0/reference/
