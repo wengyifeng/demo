@@ -1,6 +1,6 @@
 # AD域登录验证
 
-作者：[Grey][0]
+作者：[Grey](http://www.cnblogs.com/greyzeng/)
 
 原文地址：http://www.cnblogs.com/greyzeng/p/5799699.html
 
@@ -271,5 +271,3 @@ public class ADAuthSpringTest {
 
 -------------------
 更多：http://docs.spring.io/spring-ldap/docs/1.2.0/reference/
-
-[0]:http://www.cnblogs.com/greyzeng/
