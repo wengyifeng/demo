@@ -2,7 +2,7 @@
 
 作者：[Grey][0]
 
-原文地址：
+原文地址：http://www.cnblogs.com/greyzeng/p/5799699.html
 
 ## 需求
 系统在登录的时候，需要根据用户名和密码验证连接域服务器进行验证此用户是否为域用户。
@@ -273,5 +273,3 @@ public class ADAuthSpringTest {
 更多：http://docs.spring.io/spring-ldap/docs/1.2.0/reference/
 
 [0]:http://www.cnblogs.com/greyzeng/
-
-
