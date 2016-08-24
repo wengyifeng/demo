@@ -17,7 +17,7 @@ public class ADAuthSpringTest {
 	
 	@Test
 	public void testAuth() {
-		Assert.assertTrue(adValidation.authenticate("abc", "123abc."));
+		Assert.assertTrue(adValidation.authenticate("abc", "abc123."));
 	}
 
 }
