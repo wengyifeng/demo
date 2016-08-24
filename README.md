@@ -15,6 +15,8 @@
 
 ## 实现
 ### Java版
+
+ADAuthJava.java
 ```java
 package com.hui.advalidationdemo;
 
@@ -64,9 +66,10 @@ public class ADAuthJava {
 		return HashEnv;
 	}
 }
-
 ```
+
 单元测试：ADAuthJavaTest.java
+
 ```java
 package com.hui.advalidationdemo;
 
@@ -162,34 +165,40 @@ applicationContext-ldap.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
+   <bean id="configBean" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	  <property name="location"><value>classpath:config.properties</value></property>
+   </bean> 
    <bean id="contextSource" class="org.springframework.ldap.core.support.LdapContextSource">
-      <property name="url" value="ldap://x.x.x.x:xxx" />
-      <property name="base" value="DC=adservice,DC=com" />
+      <property name="url" value="${ad.url}" />
+      <property name="base" value="${ad.base}" />
    </bean>
-
    <bean id="ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
       <constructor-arg ref="contextSource" />
    </bean>
-
    <bean id="adDao" class="com.hui.advalidationdemo.ADAuthSpring">
       <property name="ldapTemplate" ref="ldapTemplate" />
    </bean>
 </beans>
 ```
+
 ADAuthSpring.java
-```
+```java
 package com.hui.advalidationdemo;
 
+import static com.hui.advalidationdemo.constant.ApplicationConstants.getConfig;
 import static java.lang.String.format;
 import static org.acegisecurity.ldap.LdapUtils.closeContext;
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.apache.log4j.Logger.getLogger;
 
 import javax.naming.directory.DirContext;
 
+import org.apache.log4j.Logger;
 import org.springframework.ldap.core.LdapTemplate;
 
-public class ADAuthSpring {
 
+public class ADAuthSpring {
+	private static final Logger log = getLogger(ADAuthSpring.class);
 	private LdapTemplate ldapTemplate;
 
 	public void setLdapTemplate(LdapTemplate ldapTemplate) {
@@ -217,23 +226,31 @@ public class ADAuthSpring {
 	}
 
 	private String buildADPath(String userName) {
-		String adPathTemplate = "%s@adservice.com";
+		String adPathTemplate = getConfig("ad.path.template");
 		if (isBlank(adPathTemplate)) {
-			System.out.println("ad.path template do not exist in config.properties please config it");
+			log.error("ad.path template do not exist in config.properties please config it");
 			return null;
 		}
-		System.out.println("ad.path template is " + adPathTemplate);
+		log.debug("ad.path template is "+adPathTemplate);
 		try {
 			String adPath = format(adPathTemplate, userName);
-			System.out.println("adPath is:" + adPath);
+			log.debug("adPath is:"+adPath);
 			return adPath;
 		} catch (Exception e) {
-			System.out.println("ad path template format error");
+			log.error("ad path template format error");
 			return null;
 		}
-
+		
 	}
 }
+```
+
+config.properties
+```
+# AD Validation#
+ad.url=ldap://x.x.x.x:xxx
+ad.base=DC=adservice,DC=com
+ad.path.template=%s@adservice.com
 ```
 
 单元测试：
