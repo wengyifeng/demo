@@ -1,5 +1,9 @@
 package com.hui.advalidationdemo.constant;
 
+import static java.lang.String.format;
+import static java.lang.Thread.currentThread;
+import static org.apache.commons.lang3.StringUtils.isBlank;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -7,11 +11,6 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
-
-import static com.hui.advalidationdemo.constant.ApplicationConstants.getConfig;
-import static java.lang.String.format;
-import static java.lang.Thread.*;
-import static org.apache.commons.lang3.StringUtils.isBlank;
 
 
 public class ApplicationConstants {

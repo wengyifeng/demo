@@ -2,11 +2,9 @@ package com.hui.advalidationdemo;
 
 import static com.hui.advalidationdemo.constant.ApplicationConstants.buildADPath;
 import static org.acegisecurity.ldap.LdapUtils.closeContext;
-import static org.apache.log4j.Logger.getLogger;
 
 import javax.naming.directory.DirContext;
 
-import org.apache.log4j.Logger;
 import org.springframework.ldap.core.LdapTemplate;
 
 
