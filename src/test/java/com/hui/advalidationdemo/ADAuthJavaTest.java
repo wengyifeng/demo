@@ -7,6 +7,6 @@ import org.junit.Test;
 public class ADAuthJavaTest {
 	@Test
 	public void testAuthenticate() {
-		assertTrue(authenticate("x.x.x.x", "xxx", "abc@adservice.com", "abc123."));
+		assertTrue(authenticate("abc", "abc123."));
 	}
 }

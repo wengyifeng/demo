@@ -7,7 +7,11 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+
+import static com.hui.advalidationdemo.constant.ApplicationConstants.getConfig;
+import static java.lang.String.format;
 import static java.lang.Thread.*;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 
 public class ApplicationConstants {
@@ -43,7 +47,23 @@ public class ApplicationConstants {
 	public static String getConfig(String key){
 		return (String) configs.get(key);
 	}
-	
+	public static  String buildADPath(String userName) {
+		String adPathTemplate = getConfig("ad.path.template");
+		if (isBlank(adPathTemplate)) {
+			log.error("ad.path template do not exist in config.properties please config it");
+			return null;
+		}
+		log.debug("ad.path template is "+adPathTemplate);
+		try {
+			String adPath = format(adPathTemplate, userName);
+			log.debug("adPath is:"+adPath);
+			return adPath;
+		} catch (Exception e) {
+			log.error("ad path template format error");
+			return null;
+		}
+		
+	}
 	
 }
 
