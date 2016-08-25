@@ -1,6 +1,7 @@
 package com.hui.advalidationdemo;
 
-import static com.hui.advalidationdemo.constant.ApplicationConstants.*;
+import static com.hui.advalidationdemo.constant.ApplicationConstants.buildADPath;
+import static com.hui.advalidationdemo.constant.ApplicationConstants.getConfig;
 import static javax.naming.Context.INITIAL_CONTEXT_FACTORY;
 import static javax.naming.Context.PROVIDER_URL;
 import static javax.naming.Context.SECURITY_AUTHENTICATION;
