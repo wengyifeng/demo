@@ -2,3 +2,8 @@
 /.settings/
 /.classpath
 /.project
+.idea/
+junitdemo.iml
+out/
+src/main/main.iml
+src/test/test.iml
