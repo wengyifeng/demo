@@ -1,9 +1,0 @@
-/target/
-/.settings/
-/.classpath
-/.project
-.idea/
-junit.iml
-out/
-src/main/main.iml
-src/test/test.iml
