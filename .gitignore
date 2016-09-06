@@ -1,7 +1,0 @@
-# Created by .ignore support plugin (hsz.mobi)
-.idea/
-.gitignore
-advalidation/target/
-junit/target/
-advalidation/advalidation.iml
-junit/junit.iml
