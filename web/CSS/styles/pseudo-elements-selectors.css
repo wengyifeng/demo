@@ -1,0 +1,10 @@
+/* All elements with an attribute "href", which values
+   start with "http", will be added an arrow after its
+   content (to indicate it's an external link) */
+[href^=http]::before {
+  content: '⤴';
+}
+
+p::after {
+  content: '⤴';
+}

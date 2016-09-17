@@ -1,0 +1,11 @@
+/* weight: 0002 */
+p strong {
+  background-color: khaki;
+  color: green;
+}
+
+/* weight: 0001 */
+strong {
+  text-decoration: underline;
+  color: red;
+}
