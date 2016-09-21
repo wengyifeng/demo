@@ -1,0 +1,60 @@
+<!--
+  Generated template for the DetailsPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar *navbar>
+    <ion-title class="head-font">详情</ion-title>
+</ion-navbar>
+<ion-content padding>
+    <ion-list>
+        <ion-item-sliding text-wrap  class="main-font">
+            <ion-item>
+                检修设备
+                <button clear item-right (click)="hiddenDevice()">{{deviceHiddenValue}}</button>
+            </ion-item>
+            <ion-item [hidden]="hiddenDeviceFlag">
+                设备名称：#风机机组系统及设备
+            </ion-item>
+            <ion-item [hidden]="hiddenDeviceFlag">
+                工作内容：螺栓力矩紧固，主轴，偏航轴承注油，碳刷检验
+            </ion-item>
+            <ion-item [hidden]="hiddenDeviceFlag">
+                工作地点：风机塔顶，机舱，塔筒内
+            </ion-item>
+            <ion-item>
+                必须采取的安全措施
+            </ion-item>
+            <button ion-item (click)="viewSteps()">
+                <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon>
+                <ion-item-content>
+                    锁上#14风机转子锁，在操作把手上挂“禁止操作，有人工作”的标示牌
+                </ion-item-content>
+                <ion-icon item-right ios="ios-arrow-dropright" md="ios-arrow-dropright"></ion-icon>
+            </button>
+            <button ion-item (click)="viewSteps()">
+                <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon>
+                <ion-item-content>
+                    停止运行#14风机，塔下柜控制按钮打到“停机”位置，在塔下“禁止合闸，有人工作！”标示
+                </ion-item-content>
+                <ion-icon item-right  ios="ios-arrow-dropright" md="ios-arrow-dropright"></ion-icon>
+            </button>
+            <ion-item>
+                流转过程
+                <button clear item-right (click)="hiddenFlowDetails()">{{flowHiddenValue}}</button>
+            </ion-item>
+            <ion-item [hidden]="hiddenFlowFlag">
+                创建 王驰 2016-03-07 08:09
+            </ion-item>
+            <ion-item [hidden]="hiddenFlowFlag">
+                签发 殷宏林 2016-03-07 08:09
+            </ion-item>
+
+        </ion-item-sliding>
+    </ion-list>
+
+    <div padding>
+        <button block (click)="commit()" [disabled]="disabledFlag">提交许可人审核</button>
+    </div>
+</ion-content>

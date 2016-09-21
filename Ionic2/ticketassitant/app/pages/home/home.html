@@ -1,0 +1,34 @@
+<ion-navbar  *navbar>
+  <ion-segment class="center" positive>
+    <ion-segment-button value="workticket">
+      工作票
+    </ion-segment-button>
+    <ion-segment-button value="operateticket">
+      操作票
+    </ion-segment-button>
+  </ion-segment>
+  <ion-buttons end>
+    <button (click)="setting()">
+      <ion-icon ios="ios-settings" md="md-settings"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  
+</ion-navbar>
+
+
+<ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)" placeholder="搜索" cancelButtonText="取消" ></ion-searchbar>
+<ion-content class="schedule">
+ <ion-list>   
+     <ion-item-sliding  #slidingItem>
+            <button *ngFor="#item of items" ion-item (click)="viewDetails()"  >
+                  <h3> {{ item }}</h3>
+                  <p>
+                    ZJW-DE-2016030017 &mdash;
+                    待许可
+                 </p>
+            </button>
+           
+        </ion-item-sliding>
+  </ion-list>
+</ion-content>
